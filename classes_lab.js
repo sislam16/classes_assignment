@@ -217,24 +217,33 @@ console.log(v3.getLength())
      this.make = make;
      this.model = model;
    }
-
+ static numberOfWheels(){
+   return 4
+ }
  }
 
  let audi = new Car('Audi', 'Q8')
  console.log(audi)
+ console.log(Car.numberOfWheels()) // logs number of wheels; part
+
 // // b. Make a class called `Bike` with properties `gears` and `hasBell`.  Create an instance of `Bike`
 class Bike{
   constructor(gears, hasBell){
     this.gears = gears;
     this.hasBell = hasBell;
   }
-
+ static numberOfWheels(){
+   return 2
+ }
 }
 
 let bike1 = new Bike(1 ,true)
 console.log(bike1)
+console.log(Bike.numberOfWheels())// logs number of wheels; part C
+
 // c. Give each class a static method called `numberOfWheels` that returns the number of wheels (2 for bikes, 4 for cars).  Why does it make sense for this to be a static method instead of an instance method?
-//
+// `It makes sense for this to be a static method because the number is not the same for every instance.`
+
 // ## Question 8
 //
 // a. Make a class called `Vehicle` with properties `color` and `name`.  Give it a method called `makeSound` which logs "WHHOOSSSH" to the console
@@ -247,16 +256,41 @@ class Vehicle{
     console.log('WHHOOSSSH!')
   }
 }
+let car = new Vehicle('purple', 'CR-V')
+console.log(car)
 // b. Modify your `Car` and `Bike` classes from Question 7 to extend the `Vehicle` class.
-class Car extends Vehicle{
+class Car2 extends Vehicle{
   constructor(name, color, make, model){
     super(color,name)
+    this.make = make,
+    this.model = model
+  }
+  static numberOfWheels(){
+    return `4 wheels.`
   }
 }
-// c. Create a new `Bike` instance that has a `color` of "green" and `name` "Bikey McBikeface"
-class Bike extends Vehicle{
+
+let car2 = new Car2('Lola', 'Orange', 'Volkswagon', 'IDK')
+console.log(car2)
+
+
+class Bike2 extends Vehicle{
   constructor(name, color, gears, hasBell){
     super(color,name)
+    this.gears = gears;
+    this.hasBell = hasBell;
+  }
+  static numberOfWheels(){
+    return 2
   }
 }
+
+// c. Create a new `Bike` instance that has a `color` of "green" and `name` "Bikey McBikeface"
+
+let bike3 = new Bike2('Bikey McBikeface', 'green', 2, false )
+console.log(bike3)
+
 // d. Create a new `Car` instance that has a `color` of "red" and `name` "Carry McCarface"
+
+let car3 = new Car2('Carry McCarface', 'red', 'Toyota', 'Camry')
+console.log(car3)
